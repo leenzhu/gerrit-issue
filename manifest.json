@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "GerritIssue",
+  "version": "1.0",
+  "description": "根据故障单号自动生成相关提交记录信息。",
+  "icons": {"16": "gerrit_icon.png", "48": "gerrit_icon.png", "128": "gerrit_icon.png"},
+
+  "permissions": [
+     "http://172.16.164.211/*"
+  ],
+  "browser_action": {
+    "default_icon": "gerrit_icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+        {
+            "matches": ["http://172.16.164.211/*"],
+            "js": ["js/clipboard.min.js", "js/issue.js"],
+	          "run_at":"document_end"
+        }
+    ]
+}
